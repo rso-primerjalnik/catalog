@@ -13,13 +13,13 @@ spec:
         app: catalog
     spec:
       containers:
-        - image: prporso/catalog:2022
+        - image: ad0488/catalog:2022
           name: catalog
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
-              value: jdbc:postgresql://fanny.db.elephantsql.com:5432/zqjqqtrd
+              value: jdbc:postgresql://mouse.db.elephantsql.com:5432/emhjkfgj
             - name: KUMULUZEE_DATASOURCES0_USERNAME
-              value: zqjqqtrd
+              value: emhjkfgj
             - name: KUMULUZEE_DATASOURCES0_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -29,18 +29,7 @@ spec:
             - containerPort: 8080
               name: server
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /health/live
-              port: server
-            initialDelaySeconds: 20
-            periodSeconds: 3
-          readinessProbe:
-              httpGet:
-                path: /health/ready
-                port: server
-              initialDelaySeconds: 20
-              periodSeconds: 3
+
 
 ---
 
@@ -53,6 +42,6 @@ spec:
   ports:
     - port: 8080
       protocol: TCP
-      targetPort: server
+      targetPort: catalog-port
   selector:
     app: catalog
