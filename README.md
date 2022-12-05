@@ -12,7 +12,7 @@ mvn clean package
 cd api/target
 java -jar catalog-api-1.0.0-SNAPSHOT.jar
 ```
-Available at: localhost:8080/v1/products and localhost:8080/v1/products/<id>
+Available at: localhost:8080/v1/products and localhost:8080/v1/products/(id=1,2,3,4)
 
 
 
