@@ -47,6 +47,21 @@ public class ProductEndpoint {
     })
     @GET
     public Response getAllProducts() {
+        List<Product> products = productBean.getFilteredProducts(uriInfo);
+        return Response.ok(products).header("X-Total-Count", products.size()).build();
+    }
+
+    @Operation(description = "Get filtered products.", summary = "Get filtered products")
+    @APIResponses({
+            @APIResponse(
+                    responseCode = "200",
+                    description = "List of filtered products",
+                    content = @Content(schema = @Schema(implementation = Product.class, type = SchemaType.ARRAY)),
+                    headers = {@Header(name = "X-Total-Count", description = "Number of products in list")}
+            )
+    })
+    @GET
+    public Response getFilteredProducts() {
         List<Product> products = productBean.getProducts();
         return Response.ok(products).header("X-Total-Count", products.size()).build();
     }
