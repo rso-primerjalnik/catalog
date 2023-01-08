@@ -9,16 +9,14 @@ import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
+import org.glassfish.jersey.logging.LoggingFeature;
 import si.fri.rso.samples.imagecatalog.lib.Product;
 import si.fri.rso.samples.imagecatalog.services.beans.ProductInfoBean;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
+import javax.ws.rs.core.*;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -47,7 +45,7 @@ public class ProductEndpoint {
     })
     @GET
     public Response getAllProducts() {
-        List<Product> products = productBean.getFilteredProducts(uriInfo);
+        List<Product> products = productBean.getProducts();
         return Response.ok(products).header("X-Total-Count", products.size()).build();
     }
 
@@ -61,8 +59,9 @@ public class ProductEndpoint {
             )
     })
     @GET
+    @Path("/filter")
     public Response getFilteredProducts() {
-        List<Product> products = productBean.getProducts();
+        List<Product> products = productBean.getFilteredProducts(uriInfo);
         return Response.ok(products).header("X-Total-Count", products.size()).build();
     }
 
