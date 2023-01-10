@@ -1,5 +1,6 @@
 package si.fri.rso.samples.imagecatalog.api.v1;
 
+import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.headers.Header;
@@ -24,6 +25,7 @@ import java.util.logging.Logger;
 @Path("/products")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@CrossOrigin(supportedMethods = "GET, POST, HEAD, OPTIONS, PUT")
 public class ProductEndpoint {
 
     private final Logger log = Logger.getLogger(ProductEndpoint.class.getName());
