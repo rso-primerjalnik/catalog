@@ -22,6 +22,9 @@ public class ProductEntity {
     @Column(name = "weight")
     private String weight;
 
+    @Column(name = "favourite", columnDefinition = "boolean default false")
+    private Boolean favourite = false;
+
     public Integer getId() {
         return id;
     }
@@ -52,5 +55,13 @@ public class ProductEntity {
 
     public void setWeight(String weight) {
         this.weight = weight;
+    }
+
+    public Boolean getFavourite() {
+        return favourite;
+    }
+
+    public void setFavourite(Boolean favourite) {
+        this.favourite = favourite;
     }
 }

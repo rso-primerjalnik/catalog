@@ -12,6 +12,7 @@ public class ConvertProduct {
         obj.setName(entity.getName());
         obj.setDescription(entity.getDescription());
         obj.setWeight(entity.getWeight());
+        obj.setFavourite(entity.getFavourite());
         return obj;
 
     }
@@ -22,6 +23,7 @@ public class ConvertProduct {
         entity.setName(obj.getName());
         entity.setDescription(obj.getDescription());
         entity.setWeight(obj.getWeight());
+        entity.setFavourite(obj.getFavourite());
 
         return entity;
 
