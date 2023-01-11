@@ -63,9 +63,9 @@ public class ProductInfoBean {
             TrRollback();
         }
 
-//        if (productEntity.getId() == null) {
-//            throw new RuntimeException("No entity");
-//        }
+        if (productEntity.getId() == null) {
+            throw new RuntimeException("No entity");
+        }
 
         return ConvertProduct.makeObject(productEntity);
     }
