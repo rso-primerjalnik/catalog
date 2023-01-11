@@ -12,7 +12,8 @@ kumuluzee:
       connection-url: jdbc:postgresql://localhost:5432/catalog
       username: dbuser
       password: postgres
-      max-pool-size: 20
+      pool:
+        max-size: 1
   cors-filter:
     annotations:
       my-resource:
@@ -27,7 +28,7 @@ kumuluzee:
       server-auto-config:
         enabled: true
         original-uri-check: true
-    servers: http://20.23.109.163/shopping-cart/
+    servers: http://20.23.109.163/product-catalog/
   logs:
     config-file: '<?xml version="1.0" encoding="UTF-8"?>
                             <Configuration name="comments">
