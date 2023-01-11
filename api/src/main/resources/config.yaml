@@ -19,6 +19,11 @@ kumuluzee:
       my-resource:
         allow-origin: "*"
         allow-subdomains: true
+  health:
+    checks:
+      data-source-health-check:
+        jndi-name: jdbc/CatalogDS
+        type: liveness
   metrics:
     web-instrumentation:
       - name: catalog-endpoint
