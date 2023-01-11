@@ -13,7 +13,7 @@ spec:
         app: catalog
     spec:
       containers:
-        - image: ad0488/catalog:2022
+        - image: ad0488/catalog:latest
           name: catalog
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
@@ -36,7 +36,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: catalog
+  name: product-catalog
 spec:
   type: ClusterIP
   ports:
