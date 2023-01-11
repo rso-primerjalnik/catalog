@@ -13,7 +13,7 @@ spec:
         app: catalog
     spec:
       containers:
-        - image: ad0488/catalog:latest
+        - image: anzeo/product-catalog:latest
           name: catalog
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
