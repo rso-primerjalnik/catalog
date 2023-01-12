@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: catalog-deployment
+  name: product-catalog-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: catalog
+      app: product-catalog
   template:
     metadata:
       labels:
-        app: catalog
+        app: product-catalog
     spec:
       containers:
         - image: anzeo/product-catalog:latest
-          name: catalog
+          name: product-catalog
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
               value: jdbc:postgresql://mouse.db.elephantsql.com:5432/emhjkfgj
@@ -56,4 +56,4 @@ spec:
       protocol: TCP
       targetPort: server
   selector:
-    app: catalog
+    app: product-catalog
